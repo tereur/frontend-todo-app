@@ -8,13 +8,13 @@ const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // Etat pour gérer le chargement
+  const [loading, setLoading] = useState(false); 
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    setLoading(true); // Active le chargement
+    setLoading(true); 
 
     try {
       const response = await login(email, password);
@@ -28,7 +28,7 @@ const LoginPage = () => {
     } catch (err) {
       setError('An error occurred, please try again.');
     } finally {
-      setLoading(false); // Désactive le chargement
+      setLoading(false);
     }
   };
 

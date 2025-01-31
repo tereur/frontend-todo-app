@@ -3,11 +3,12 @@ import { useRouter } from "next/navigation";
 import { logoutService } from "../services/auth";
 import { getAuthToken, removeAuthToken } from "../utils/auth";
 import { useEffect, useState } from "react";
+import TaskList from "../components/TaskList";
 
 const DashboardPage = () => {
   const router = useRouter();
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const [loading, setLoading] = useState<boolean>(false); // Etat pour gérer le chargement
+  const [loading, setLoading] = useState<boolean>(false); 
 
   useEffect(() => {
     const token = getAuthToken();
@@ -19,7 +20,7 @@ const DashboardPage = () => {
   }, [router]);
 
   const handleLogout = async () => {
-    setLoading(true); // Active le chargement lors de la déconnexion
+    setLoading(true); 
     const token = getAuthToken();
     try {
       await logoutService(token);
@@ -28,7 +29,7 @@ const DashboardPage = () => {
     } catch (error) {
       console.error("Erreur lors de la déconnexion :", error);
     } finally {
-      setLoading(false); // Désactive le chargement une fois l'opération terminée
+      setLoading(false); 
     }
   };
 
@@ -55,8 +56,8 @@ const DashboardPage = () => {
       </nav>
 
       <main className="p-8">
-        <h2 className="text-2xl font-bold mb-4">Welcome to your Dashboard!</h2>
-        <p className="text-gray-700">This is where your dashboard content goes.</p>
+        <h2 className="text-2xl font-bold mb-4">Bien Dashboard!</h2>
+        <TaskList/>
       </main>
     </div>
   );

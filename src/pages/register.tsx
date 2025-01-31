@@ -9,7 +9,7 @@ const RegisterPage = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // Ajout d'un état pour gérer le chargement
+  const [loading, setLoading] = useState(false); 
   const router = useRouter();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -20,7 +20,7 @@ const RegisterPage = () => {
       return;
     }
 
-    setLoading(true); // Active le chargement lorsque l'enregistrement commence
+    setLoading(true); 
 
     try {
       const response = await register(username, email, password);
@@ -32,7 +32,7 @@ const RegisterPage = () => {
     } catch (err) {
       setError('An error occurred, please try again.' + err);
     } finally {
-      setLoading(false); // Désactive le chargement une fois l'opération terminée
+      setLoading(false);
     }
   };
 
@@ -89,10 +89,10 @@ const RegisterPage = () => {
           <button
             type="submit"
             className={`w-full py-2 px-4 rounded-md hover:bg-blue-600 ${loading ? 'bg-gray-400 cursor-not-allowed' : 'bg-blue-500'}`} 
-            disabled={loading} // Désactive le bouton pendant le chargement
+            disabled={loading} 
           >
             {loading ? (
-              <span className="animate-spin">🔄</span> // Affichage du loader
+              <span className="animate-spin">🔄</span> 
             ) : (
               'Register'
             )}
