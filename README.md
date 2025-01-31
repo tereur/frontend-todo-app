@@ -61,7 +61,6 @@ Accédez ensuite à l'application via :
 
 - **Démarrage local** : `npm run dev` ou `yarn dev`  
 - **Build pour production** : `npm run build` ou `yarn build`  
-- **Analyse du code** : `npm run lint` ou `yarn lint`
 
 ---
 
